@@ -1,0 +1,12 @@
+{% extends 'base.html' %}
+
+{% block content %}
+
+    ELO! <br>
+    <form method="POST" class="post-form">
+        {{form.as_table}}
+        {% csrf_token %}<button type="submit"></button>
+    </form>
+    <a href="{% url 'RateApp:registration' %}">Rejestracja!</a>
+
+{% endblock %}
