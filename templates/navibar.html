@@ -4,19 +4,26 @@
   <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarTogglerDemo03" aria-controls="navbarTogglerDemo03" aria-expanded="false" aria-label="Toggle navigation">
     <span class="navbar-toggler-icon"></span>
   </button>
-  <a class="navbar-brand" href="{% url 'RateApp:home' %}"><img class="nav_logo" src="{% static 'images/LOGO_TRIPLE_M_BIALE.png' %}"></a>
+  <a class="navbar-brand" href="{% url 'RateApp:home' %}"><img class="nav-logo" src="{% static 'images/LOGO_TRIPLE_M_BIALE.png' %}"></a>
 
   <div class="collapse navbar-collapse" id="navbarTogglerDemo03">
-    <ul class="navbar-nav ml-auto mt-2 mt-lg-0">
+    <ul class="navbar-nav ml-auto mt-2 mt-lg-0" id="nav-icons">
+      {% if user_login %}
+      <li class="nav-item">
+        <a id="popoverOption" class="nav-link" data-content="Si In" rel="popover" data-placement="bottom"><i class="fa fa-sign-in fa" aria-hidden="true"></i></a>
+      </li>
+      {% else %}
       <li class="nav-item active">
-        <a class="nav-link" href="#"><span class="glyphicon glyphicon-user"></span></a>
+        <a id="popoverOption" class="nav-link" href="#" data-content="To use this app You have to sign in!" rel="popover" data-placement="bottom"><i class="fa fa-sign-in" aria-hidden="true"> Sign In</i></a>
       </li>
-      <li class="nav-item">
-        <a class="nav-link" href="#">Link</a>
+      <li class="nav-item active">
+        <a id="popoverOption" class="nav-link" href="#" data-content="If You don't have an account, do so!" rel="popover" data-placement="bottom"><i class="fa fa-user-plus" aria-hidden="true"> Sign Up</i></a>
       </li>
-      <li class="nav-item">
-        <a class="nav-link disabled" href="#">Disabled</a>
-      </li>
+      {% endif %}
     </ul>
   </div>
 </nav>
+
+<script>
+    $('#popoverOption').popover({ trigger: "hover" });
+</script>
