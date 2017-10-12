@@ -19,10 +19,11 @@ class SettingsBackend(object):
         if login_success(user_login=username, password=password):
             try:
                 user = User.objects.get(username=username)
-            except UserData.DoesNotExist:
+            except User.DoesNotExist:
                 return
             return user
         return None
+
 
     def get_user(self, user_id):
         try:
@@ -31,12 +32,17 @@ class SettingsBackend(object):
             return None
 
 
+
 def login_success(user_login, password):
-    password_from_db_hash = UserData.objects.values_list('password_hash', flat=True).get(login=user_login)
-    password_from_db_salt = UserData.objects.values_list('password_salt', flat=True).get(login=user_login)
-    if UserData.objects.filter(login=user_login).exists() and encoding_functions.check_password(password_from_db_salt,
-                                                                             password_from_db_hash, password):
-        return True
-    else:
-        return False
+    try:
+        password_from_db_hash = UserData.objects.values_list('password_hash', flat=True).get(login=user_login)
+        password_from_db_salt = UserData.objects.values_list('password_salt', flat=True).get(login=user_login)
+        if UserData.objects.filter(login=user_login).exists() and encoding_functions.check_password(password_from_db_salt,
+                                                                                 password_from_db_hash, password):
+            return True
+        else:
+            return False
+    except UserData.DoesNotExist:
+        return None
+
 

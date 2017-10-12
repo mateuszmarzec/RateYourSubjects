@@ -119,6 +119,7 @@ STATIC_URL = '/static/'
 AUTHENTICATION_BACKENDS = ('Account.models.SettingsBackend', )
 
 LOGIN_REDIRECT_URL = '/home/'
+LOGOUT_REDIRECT_URL = '/home/'
 LOGIN_URL = '/account/login/'
 LOGOUT_URL = '/account/logout/'
 

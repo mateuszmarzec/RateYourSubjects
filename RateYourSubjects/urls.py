@@ -18,7 +18,7 @@ from django.contrib import admin
 from django.views.generic.base import RedirectView
 
 urlpatterns = [
-    url(r'^$', RedirectView.as_view(url='/account/login/')),
+    url(r'^$', RedirectView.as_view(url='/home/')),
     url(r'^admin/', admin.site.urls),
     url(r'^account/', include('Account.urls')),
     url(r'^', include('RateApp.urls')),

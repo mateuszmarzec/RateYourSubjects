@@ -1,11 +1,22 @@
 {% extends 'base.html' %}
 
 {% block content %}
+    <div class="jumbotron jumbotron-fluid">
+      <div class="container">
+        <h1 class="display-3">Welcome to RateYourSubjects App!</h1>
+        <p class="lead">RYS is a simple django app helping You enjoy your students life</p>
+      </div>
+    </div>
+    <div class="container-fluid" style="margin-top: 50px;">
+        {% if form.errors %}
+            <div class="alert alert-danger alert-dismissible fade show" role="alert">
+                <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+                <strong>Error!</strong> The login you've entered doesen't match any account, or password is wrong.
+            </div>
+        {% endif %}
+    </div>
 
-    ELO!! <br>
-    <form role="form" method="post" action="{% url 'Account:login' %}">{% csrf_token %}
-        <input name="username"><input type="password" name="password"><input type="submit" id="login_button"  value="Login"/>
-    </form>
-    <a href="{% url 'RateApp:registration' %}">Rejestracja!</a>
 
 {% endblock %}

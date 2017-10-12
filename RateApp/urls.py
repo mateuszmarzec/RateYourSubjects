@@ -5,6 +5,5 @@ from . import views
 app_name = 'RateApp'
 urlpatterns = [
     url(r'^home/$', views.home, name='home'),
-    url(r'^reg/$', views.registration, name='registration'),
 
 ]
