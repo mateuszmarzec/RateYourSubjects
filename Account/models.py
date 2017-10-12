@@ -20,10 +20,10 @@ class SettingsBackend(object):
             try:
                 user = User.objects.get(username=username)
             except User.DoesNotExist:
-                return
+                user = User(username=username, password=UserData.objects.values_list('password_hash', flat=True).get(login=username))
+                user.save()
             return user
         return None
-
 
     def get_user(self, user_id):
         try:
