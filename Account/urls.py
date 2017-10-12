@@ -8,5 +8,6 @@ urlpatterns = [
         {'template_name': 'Account/login.html'}, name='login'),
     url('logout/$', auth_views.logout,
         {'template_name': 'Account/logout.html'}, name='logout'),
+    url(r'^reg/$', views.registration, name='registration'),
 
 ]
