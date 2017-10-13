@@ -14,7 +14,7 @@
       </li>
       {% else %}
       <li class="nav-item active">
-        <a class="nav-link" href="#"><i id="popoverOption" data-content="To use this app You have to sign in!" rel="popover" data-placement="bottom" class="fa fa-sign-in" aria-hidden="true" data-toggle="modal" data-target="#sign-in-modal"> Sign In</i></a>
+        <a class="nav-link" href="{% url 'Account:login' %}"><i id="popoverOption" data-content="To use this app You have to sign in!" rel="popover" data-placement="bottom" class="fa fa-sign-in" aria-hidden="true" data-toggle="modal" data-target="#sign-in-modal"> Sign In</i></a>
       </li>
       <li class="nav-item active">
         <a class="nav-link" href="{% url 'Account:registration' %}"><i id="popoverOption" data-content="If You don't have an account, do so!" rel="popover" data-placement="bottom" class="fa fa-user-plus" aria-hidden="true" data-toggle="modal" data-target="#sign-up-modal"> Sign Up</i></a>

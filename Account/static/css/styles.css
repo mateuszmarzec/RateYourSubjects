@@ -11,5 +11,18 @@
     width: 500px;
     margin-top: 20px;
 }
+div button:not(.close){
+    width:100% !important;
+    border-color:#343a40 !important;
+    background-color:#343a40 !important;
+    color:#868e96;
+}
+a{
+    color: #868e96;
+}
+a:hover{
+    color: #868e96;
+}
+
 
 

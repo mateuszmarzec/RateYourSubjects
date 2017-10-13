@@ -29,6 +29,7 @@ def registration(request):
                     current_site = get_current_site(request)
                     subprocess.call(["python3 email_confirm.py"], shell=True, cwd=os.path.dirname(os.path.abspath('RateYourSubjects')))
                     messages.success(request, 'You\'re now a member of our community', 'Congratulations!')
+                    messages.success(request, 'We\'ve just sent you a confirmation message', 'Check Your mail box!')
                     return redirect('Account:login')
                 else:
                     messages.error(request, 'Password and Confirm Password are not the same!', 'reg_error')
