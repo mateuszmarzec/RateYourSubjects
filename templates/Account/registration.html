@@ -2,8 +2,15 @@
 
 {% block content %}
 
+    <div class="jumbotron jumbotron-fluid">
+        <div class="container" style="text-align: center">
+            <h1 class="display-3">Sign Up to RYS</h1>
+            <p class="lead">After Sign Up we will send confirmation email to You. To confirm your email account, just use link You can find in the message</p>
+          </div>
+    </div>
+
     <form method="POST" class="post-form"> {% csrf_token %}
-        <div class="container" style="width: 600px; margin-top: 50px;">
+        <div id="reg-form" class="container"">
                     <div class="form-group">
                         <div class="input-group input-group-lg">
                             <input type="text" class="form-control" required="required" placeholder="Login" aria-label="Login" aria-describedby="sizing-addon1" name="login">

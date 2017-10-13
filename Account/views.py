@@ -1,7 +1,7 @@
 from RateApp import forms, models, encoding_functions
 from django.shortcuts import render, redirect
 from django.contrib import messages
-
+import subprocess, os
 
 def registration(request):
     if request.method == 'POST':
@@ -20,6 +20,7 @@ def registration(request):
                     tuple = encoding_functions.create_password_hash(user_password)
                     user = models.UserData(login=user_login, password_hash=tuple[1], password_salt=tuple[0], email=user_email)
                     user.save()
+                    subprocess.call(["python3 email_confirm.py"], shell=True, cwd=os.path.dirname(os.path.abspath('RateYourSubjects')))
                     messages.success(request, 'You\'re now a member of our community', 'Congratulations!')
                     return redirect('Account:login')
                 else:

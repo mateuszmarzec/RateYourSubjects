@@ -3,6 +3,7 @@ from django.contrib.auth.hashers import check_password
 from django.contrib.auth.models import User
 from RateApp.models import *
 from RateApp import encoding_functions
+from datetime import datetime
 
 
 class SettingsBackend(object):
@@ -19,8 +20,12 @@ class SettingsBackend(object):
         if login_success(user_login=username, password=password):
             try:
                 user = User.objects.get(username=username)
+                user_data = UserData.objects.get(login=username)
+                user_data.last_login = datetime.now()
+                user_data.save()
             except User.DoesNotExist:
-                user = User(username=username, password=UserData.objects.values_list('password_hash', flat=True).get(login=username))
+                user = User(username=username,
+                            password=UserData.objects.values_list('password_hash', flat=True).get(login=username))
                 user.save()
             return user
         return None
@@ -32,17 +37,15 @@ class SettingsBackend(object):
             return None
 
 
-
 def login_success(user_login, password):
     try:
         password_from_db_hash = UserData.objects.values_list('password_hash', flat=True).get(login=user_login)
         password_from_db_salt = UserData.objects.values_list('password_salt', flat=True).get(login=user_login)
-        if UserData.objects.filter(login=user_login).exists() and encoding_functions.check_password(password_from_db_salt,
-                                                                                 password_from_db_hash, password):
+        if UserData.objects.filter(login=user_login).exists() and encoding_functions.check_password(
+                password_from_db_salt,
+                password_from_db_hash, password) and UserData.objects.get(login=user_login).is_active == True:
             return True
         else:
             return False
     except UserData.DoesNotExist:
         return None
-
-
