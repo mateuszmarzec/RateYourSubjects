@@ -23,6 +23,17 @@ a{
 a:hover{
     color: #868e96;
 }
-
-
+#form-title{
+    background-color: white;
+    margin: 0px;
+    padding:0px;
+    text-align: center;
+    color: #343a40 !important;
+}
+#site-title{
+    padding: 30px;
+}
+.jumbotron-fluid .container{
+    text-align: center;
+}
 

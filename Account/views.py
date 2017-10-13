@@ -1,8 +1,6 @@
 from django.contrib.sites.shortcuts import get_current_site
-from django.http import HttpResponse
 from django.utils.encoding import force_text
 from django.utils.http import urlsafe_base64_decode
-
 from Account.tokens import account_activation_token
 from RateApp import forms, models, encoding_functions
 from django.shortcuts import render, redirect
@@ -51,4 +49,4 @@ def activate(request, uidb64, token):
         # return redirect('home')
         return render(request, 'Account/registration_confirm.html')
     else:
-        return HttpResponse('Activation link is invalid!')
+        return render(request, 'Account/registration_fail.html')

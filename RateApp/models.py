@@ -10,7 +10,13 @@ class UserData(models.Model):
     email = models.EmailField()
     is_active = models.BooleanField(default=False)
     last_login = models.DateField(null=True)
+    has_usable_password = models.BooleanField(default=True)
 
     def __str__(self):
         return '%s %s %s %s' % (self.login, self.is_active, self.email, self.last_login)
 
+    def get_email_field_name(cls):
+        try:
+            return cls.EMAIL_FIELD
+        except AttributeError:
+            return 'email'

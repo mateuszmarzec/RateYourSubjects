@@ -23,9 +23,15 @@ class SettingsBackend(object):
                 user_data = UserData.objects.get(login=username)
                 user_data.last_login = datetime.now()
                 user_data.save()
+
+                if user.email == "":
+                    user.email = user_data.email
+                    user.save()
+
             except User.DoesNotExist:
                 user = User(username=username,
-                            password=UserData.objects.values_list('password_hash', flat=True).get(login=username))
+                            password=UserData.objects.values_list('password_hash', flat=True).get(login=username),
+                            email=UserData.objects.values_list('email', flat=True).get(login=username),)
                 user.save()
             return user
         return None
