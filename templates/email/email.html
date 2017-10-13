@@ -1,1 +1,6 @@
-Hello <strong>{{ username }}</strong> - your account is activated.
+{% autoescape off %}
+Hi {{ username }},
+Please click on the link to confirm your registration,
+
+http://{{ domain }}{% url 'Account:activate' uidb64=uid token=token %}
+{% endautoescape %}

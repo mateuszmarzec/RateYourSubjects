@@ -1,8 +1,18 @@
-import smtplib
-import sqlite3, subprocess, os
-from django.template.loader import get_template
+import os
+import sqlite3
 from django.core.mail import EmailMultiAlternatives
-from django.template import Context
+from django.template.loader import render_to_string
+from django.utils.encoding import force_bytes
+from django.utils.http import urlsafe_base64_encode
+import django
+from Account.tokens import account_activation_token
+
+# setup env to Django models
+os.environ.setdefault("DJANGO_SETTINGS_MODULE", "RateYourSubjects.settings")
+django.setup()
+#
+
+from RateApp.models import UserData
 
 conn = sqlite3.connect('db.sqlite3')
 c = conn.cursor()
@@ -12,11 +22,10 @@ for row in c.execute(
     new_user_data = row
 conn.close()
 
+new_user_id = new_user_data[0]
 new_user_username = new_user_data[1]
 new_user_email = new_user_data[2]
-print(new_user_email)
-
-#sub = subprocess.Popen(["python3 -m smtpd -n -c DebuggingServer localhost:588"], shell=True)
+user = UserData.objects.get(login=new_user_username)
 
 try:
     # set subject
@@ -25,36 +34,25 @@ try:
     fromaddr = 'help.triplem@gmail.com'
     # set the 'to' addresses,
     toaddrs = new_user_email
-
-    # setup the email server,
-    #server = smtplib.SMTP('smtp.gmail.com', 587)
-    #server.starttls()
-    # add my account login name and password,
-    #server.login("help.triplem@gmail.com", "triplemhelp")
+    # set domain :
+    domain = 'localhost:8400'
 
     # creating custom mail view
-    #plaintext = get_template('templates/email/email.txt')
-    #html = get_template('email/email.html')
+    plaintext_path = (os.path.abspath('./')+'/templates/email/email.txt')
+    html_path = (os.path.abspath('./')+'/templates/email/email.html')
 
-    text_content = 'This is an important message.'
-    html_content = '<p>This is an <strong>important</strong> message.</p>'
+    ctx = {'username': new_user_username, 'domain': domain, 'uid': urlsafe_base64_encode(force_bytes(new_user_id)), 'token': account_activation_token.make_token(user)}
 
-    #d = Context({'username': new_user_username})
-
-    #text_content = plaintext.render(d)
-    #html_content = html.render(d)
+    text_content = render_to_string(plaintext_path, ctx)
+    html_content = render_to_string(html_path, ctx)
 
     # creating message
     msg = EmailMultiAlternatives(subject, text_content, fromaddr, [toaddrs])
     msg.attach_alternative(html_content, "text/html")
+
+    # send message
     msg.send()
 
-
-    # send the email
-    #server.sendmail(fromaddr, toaddrs, msg)
-    # disconnect from the server
-    #server.quit()
 except:
     raise EOFError
 
-#sub.kill()
