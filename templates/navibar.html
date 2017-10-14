@@ -10,6 +10,9 @@
     <ul class="navbar-nav ml-auto mt-2 mt-lg-0" id="nav-icons">
       {% if user.is_authenticated %}
       <li class="nav-item">
+        <a class="nav-link" href="#"><i id="popoverOption" class="fa fa-user-circle fa" aria-hidden="true" data-content="Edit Your account" rel="popover" data-placement="bottom">Account</i></a>
+      </li>
+      <li class="nav-item">
         <a class="nav-link" href="{% url 'Account:logout' %}"><i id="popoverOption" class="fa fa-sign-out fa" aria-hidden="true" data-content="Are You sure? :(" rel="popover" data-placement="bottom">Sing Out</i></a>
       </li>
       {% else %}
