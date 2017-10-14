@@ -20,18 +20,23 @@ def registration(request):
                 messages.error(request, 'This login is already in use', 'reg_error')
                 return render(request, 'Account/registration.html', {'form': form})
             except models.UserData.DoesNotExist:
-                if user_password == user_confirm_password:
-                    tuple = encoding_functions.create_password_hash(user_password)
-                    user = models.UserData(login=user_login, password_hash=tuple[1], password_salt=tuple[0], email=user_email)
-                    user.save()
-                    current_site = get_current_site(request)
-                    subprocess.call(["python3 email_confirm.py"], shell=True, cwd=os.path.dirname(os.path.abspath('RateYourSubjects')))
-                    messages.success(request, 'You\'re now a member of our community', 'Congratulations!')
-                    messages.success(request, 'We\'ve just sent you a confirmation message', 'Check Your mail box!')
-                    return redirect('Account:login')
-                else:
-                    messages.error(request, 'Password and Confirm Password are not the same!', 'reg_error')
+                try:
+                    models.UserData.objects.get(email=user_email)
+                    messages.error(request, 'This email is already in use', 'reg_error')
                     return render(request, 'Account/registration.html', {'form': form})
+                except models.UserData.DoesNotExist:
+                    if user_password == user_confirm_password:
+                        tuple = encoding_functions.create_password_hash(user_password)
+                        user = models.UserData(login=user_login, password_hash=tuple[1], password_salt=tuple[0], email=user_email)
+                        user.save()
+                        current_site = get_current_site(request)
+                        subprocess.call(['python3 -c \'import email_confirm;  email_confirm.email_confirm(\"'+current_site.domain+'\")\''], shell=True, cwd=os.path.dirname(os.path.abspath('RateYourSubjects')))
+                        messages.success(request, 'You\'re now a member of our community', 'Congratulations!')
+                        messages.success(request, 'We\'ve just sent you a confirmation message', 'Check Your mail box!')
+                        return redirect('Account:login')
+                    else:
+                        messages.error(request, 'Password and Confirm Password are not the same!', 'reg_error')
+                        return render(request, 'Account/registration.html', {'form': form})
         return render(request, 'Account/registration.html', {'form': form})
     else:
         form = forms.RegisterForm()

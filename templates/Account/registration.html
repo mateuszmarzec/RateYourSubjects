@@ -3,10 +3,10 @@
 {% block title %} registration {% endblock %}
 
 {% block content %}
-
+<div id="to-loader">
     <div class="jumbotron jumbotron-fluid" id="site-title">
         <div class="container">
-            <h1 class="display-3">Sign Up to RYS</h1>
+            <h1 class="display-4">Sign Up to RYS</h1>
             <p class="lead">After Sign Up we will send confirmation email to You. To confirm your email account, just use link You can find in the message</p>
           </div>
     </div>
@@ -14,36 +14,46 @@
     <form method="POST" class="post-form"> {% csrf_token %}
         <div id="reg-form" class="container">
                     <div class="form-group">
+                        <div id="form-title" class="jumbotron jumbotron">
+                          <div class="container">
+                              <h1 class="lead">Registration</h1>
+                          </div>
+                        </div>
+                    </div>
+                    <div class="form-group">
                         <div class="input-group input-group-lg">
-                            <input type="text" class="form-control" required="required" placeholder="Login" aria-label="Login" aria-describedby="sizing-addon1" name="login">
+                            <input type="text" class="form-control" required="required" placeholder="Login" aria-label="Login" aria-describedby="sizing-addon1" name="login" id="login">
                             <span class="input-group-addon" id="sizing-addon1"><i class="fa fa-user-circle-o" aria-hidden="true"></i></span>
                         </div>
                     </div>
                     <div class="form-group">
                         <div class="input-group input-group-lg">
-                            <input id="password" type="password" class="form-control" required="required" placeholder="Password" aria-label="Password" aria-describedby="sizing-addon1" name="password">
+                            <input id="password" type="password" class="form-control" required="required" minlength="6" placeholder="Password" aria-label="Password" aria-describedby="sizing-addon1" name="password" id="password">
                             <span class="input-group-addon" id="sizing-addon1"><i class="fa fa-key" aria-hidden="true"></i></span>
                         </div>
                     </div>
                     <div class="form-group">
                         <div class="input-group input-group-lg">
-                            <input id="confirm_password" type="password" class="form-control" required="required" placeholder="Confirm Password" aria-label="Confirm Password" aria-describedby="sizing-addon1" name="confirm_password">
+                            <input id="confirm_password" type="password" class="form-control" required="required" minlength="6" placeholder="Confirm Password" aria-label="Confirm Password" aria-describedby="sizing-addon1" name="confirm_password" id="confirm_password">
                             <span class="input-group-addon" id="sizing-addon1"><i class="fa fa-key" aria-hidden="true"></i></span>
                         </div>
                     </div>
                     <div class="form-group">
                         <div class="input-group input-group-lg">
-                            <input type="email" class="form-control" required="required" placeholder="Email" aria-label="Email" aria-describedby="sizing-addon1" name="email">
+                            <input type="email" class="form-control" required="required" placeholder="Email" aria-label="Email" aria-describedby="sizing-addon1" name="email" id="email">
                             <span class="input-group-addon" id="sizing-addon1"><i class="fa fa-envelope-o" aria-hidden="true"></i></span>
                         </div>
                     </div>
             <div class="form-group row">
               <div class="offset-sm-2 col-sm-12">
-                <button type="submit" class="btn btn-primary">Sign up</button>
+                <button id="reg-submit" type="submit" class="btn btn-primary">Sign up</button>
             </div>
         </div>
     </div>
     </form>
+</div>
+
+<div id="loader" class="loader"></div>
 
 {% endblock %}
 
@@ -69,4 +79,21 @@
         {% endif %}
     {% endfor %}
 
+{% endblock %}
+
+{% block scripts %}
+<script>
+    function showLoader(){
+        var obj = document.getElementById("loader").style.display = "block"
+    }
+
+    jQuery(document).on('click','#reg-submit',function(){
+        if ((document.getElementById('login').value != '') && ((document.getElementById('password').value).length < 6) &&
+            ((document.getElementById('confirm_password').value) < 6) && ((document.getElementById('email').value).length < 6)
+            && !((document.getElementById('email').value.contains('@')))){
+        showLoader();
+        document.getElementById('to-loader').style.opacity = '0.3';
+        }
+    });
+</script>
 {% endblock %}

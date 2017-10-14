@@ -1,5 +1,3 @@
-from django.conf import settings
-from django.contrib.auth.hashers import check_password
 from django.contrib.auth.models import User
 from RateApp.models import *
 from RateApp import encoding_functions
@@ -22,16 +20,13 @@ class SettingsBackend(object):
                 user = User.objects.get(username=username)
                 user_data = UserData.objects.get(login=username)
                 user_data.last_login = datetime.now()
+                user.is_staff = True
                 user_data.save()
-
-                if user.email == "":
-                    user.email = user_data.email
-                    user.save()
 
             except User.DoesNotExist:
                 user = User(username=username,
                             password=UserData.objects.values_list('password_hash', flat=True).get(login=username),
-                            email=UserData.objects.values_list('email', flat=True).get(login=username),)
+                            email=UserData.objects.values_list('email', flat=True).get(login=username), is_superuser=True)
                 user.save()
             return user
         return None

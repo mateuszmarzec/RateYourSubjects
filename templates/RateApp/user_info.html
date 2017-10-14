@@ -1,0 +1,35 @@
+{% extends 'base.html' %}
+
+{% block title %} User Info {% endblock %}
+
+{% block content %}
+
+    <div class="jumbotron jumbotron-fluid" id="site-title">
+      <div class="container">
+        <h1 class="display-4">User Info</h1>
+        <p class="lead">Something about You</p>
+      </div>
+    </div>
+    <div id="reg-form" class="container">
+                    <div class="form-group">
+                        <div id="form-title" class="jumbotron jumbotron">
+                          <div class="container">
+                              <h1 class="lead">User Info</h1>
+                          </div>
+                        </div>
+                    </div>
+                    <table class="table">
+                        <thead>
+                            <tr>
+                                {% for field in titles %}<th>{{ field }}</th>{% endfor %}
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                {% for field in user_data %}<td>{{ field }}</td>{% endfor %}
+                            </tr>
+                        </tbody>
+                    </table>
+    </div>
+
+{% endblock %}

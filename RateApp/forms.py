@@ -11,5 +11,9 @@ class RegisterForm(forms.Form):
     confirm_password = forms.CharField(max_length=50, widget=forms.PasswordInput())
     email = forms.EmailField()
 
+class PasswordChangeForm(forms.Form):
+    new_password = forms.CharField(widget=forms.PasswordInput)
+    new_password_confirm = forms.CharField(widget=forms.PasswordInput)
+
 
 
