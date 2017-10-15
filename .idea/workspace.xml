@@ -2,21 +2,8 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="e7fb39ef-a30b-4702-979a-14b196ef42c5" name="Default" comment="">
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/templates/500.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/db.sqlite3" afterPath="$PROJECT_DIR$/db.sqlite3" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Account/static/css/styles.css" afterPath="$PROJECT_DIR$/Account/static/css/styles.css" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Account/views.py" afterPath="$PROJECT_DIR$/Account/views.py" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/RateApp/models.py" afterPath="$PROJECT_DIR$/RateApp/models.py" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/RateApp/views.py" afterPath="$PROJECT_DIR$/RateApp/views.py" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/RateYourSubjects/settings.py" afterPath="$PROJECT_DIR$/RateYourSubjects/settings.py" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/email_confirm.py" afterPath="$PROJECT_DIR$/email_confirm.py" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/templates/404.html" afterPath="$PROJECT_DIR$/templates/404.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/templates/Account/login.html" afterPath="$PROJECT_DIR$/templates/Account/login.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/templates/Account/registration.html" afterPath="$PROJECT_DIR$/templates/Account/registration.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/templates/Account/registration_confirm.html" afterPath="$PROJECT_DIR$/templates/Account/registration_confirm.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/templates/Account/registration_fail.html" afterPath="$PROJECT_DIR$/templates/Account/registration_fail.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/templates/RateApp/user_info.html" afterPath="$PROJECT_DIR$/templates/RateApp/user_info.html" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="TRACKING_ENABLED" value="true" />
@@ -44,7 +31,7 @@
         <entry file="file://$PROJECT_DIR$/Account/views.py">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="120">
-              <caret line="8" column="0" lean-forward="true" selection-start-line="8" selection-start-column="0" selection-end-line="8" selection-end-column="0" />
+              <caret line="8" column="0" lean-forward="false" selection-start-line="8" selection-start-column="0" selection-end-line="8" selection-end-column="0" />
               <folding>
                 <element signature="e#0#59#0" expanded="true" />
               </folding>
@@ -56,7 +43,7 @@
         <entry file="file://$PROJECT_DIR$/templates/Account/login.html">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="315">
-              <caret line="21" column="26" lean-forward="true" selection-start-line="14" selection-start-column="8" selection-end-line="21" selection-end-column="26" />
+              <caret line="21" column="26" lean-forward="false" selection-start-line="14" selection-start-column="8" selection-end-line="21" selection-end-column="26" />
               <folding />
             </state>
           </provider>
@@ -74,7 +61,7 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="settings.py" pinned="false" current-in-tab="true">
+      <file leaf-file-name="settings.py" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/RateYourSubjects/settings.py">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="296">
@@ -98,20 +85,20 @@
         <entry file="file://$PROJECT_DIR$/templates/404.html">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="330">
-              <caret line="22" column="14" lean-forward="true" selection-start-line="22" selection-start-column="14" selection-end-line="22" selection-end-column="14" />
+              <caret line="22" column="14" lean-forward="false" selection-start-line="22" selection-start-column="14" selection-end-line="22" selection-end-column="14" />
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="email_confirm.py" pinned="false" current-in-tab="false">
+      <file leaf-file-name="email_confirm.py" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/email_confirm.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="53">
-              <caret line="27" column="73" lean-forward="true" selection-start-line="27" selection-start-column="73" selection-end-line="27" selection-end-column="73" />
+            <state relative-caret-position="900">
+              <caret line="60" column="21" lean-forward="false" selection-start-line="60" selection-start-column="21" selection-end-line="60" selection-end-column="21" />
               <folding>
-                <marker date="1508093170086" expanded="true" signature="765:842" ph="SELECT MAX(i... RateApp_userdata" />
-                <marker date="1508093170086" expanded="true" signature="765:860" ph="SELECT MAX(i... RateApp_userdata" />
+                <marker date="1508094020609" expanded="true" signature="765:842" ph="SELECT MAX(i... RateApp_userdata" />
+                <marker date="1508094020609" expanded="true" signature="765:860" ph="SELECT MAX(i... RateApp_userdata" />
               </folding>
             </state>
           </provider>
@@ -121,7 +108,7 @@
         <entry file="file://$PROJECT_DIR$/RateApp/models.py">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="120">
-              <caret line="8" column="42" lean-forward="true" selection-start-line="8" selection-start-column="42" selection-end-line="8" selection-end-column="42" />
+              <caret line="8" column="42" lean-forward="false" selection-start-line="8" selection-start-column="42" selection-end-line="8" selection-end-column="42" />
               <folding>
                 <element signature="e#0#28#0" expanded="true" />
               </folding>
@@ -216,9 +203,9 @@
         <option value="$PROJECT_DIR$/templates/Account/registration_fail.html" />
         <option value="$PROJECT_DIR$/RateApp/views.py" />
         <option value="$PROJECT_DIR$/Account/views.py" />
-        <option value="$PROJECT_DIR$/email_confirm.py" />
         <option value="$PROJECT_DIR$/templates/500.html" />
         <option value="$PROJECT_DIR$/RateYourSubjects/settings.py" />
+        <option value="$PROJECT_DIR$/email_confirm.py" />
       </list>
     </option>
   </component>
@@ -792,7 +779,14 @@
       <option name="project" value="LOCAL" />
       <updated>1508016338391</updated>
     </task>
-    <option name="localTasksCounter" value="13" />
+    <task id="LOCAL-00013" summary="Update1">
+      <created>1508093728843</created>
+      <option name="number" value="00013" />
+      <option name="presentableId" value="LOCAL-00013" />
+      <option name="project" value="LOCAL" />
+      <updated>1508093728843</updated>
+    </task>
+    <option name="localTasksCounter" value="14" />
     <servers />
   </component>
   <component name="TodoView">
@@ -847,7 +841,8 @@
     <MESSAGE value="Password_reset_beta" />
     <MESSAGE value="Password_reset_betaV2" />
     <MESSAGE value="Password_reset_betaV3" />
-    <option name="LAST_COMMIT_MESSAGE" value="Password_reset_betaV3" />
+    <MESSAGE value="Update1" />
+    <option name="LAST_COMMIT_MESSAGE" value="Update1" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
@@ -1174,25 +1169,17 @@
     <entry file="file://$PROJECT_DIR$/RateApp/models.py">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="120">
-          <caret line="8" column="42" lean-forward="true" selection-start-line="8" selection-start-column="42" selection-end-line="8" selection-end-column="42" />
+          <caret line="8" column="42" lean-forward="false" selection-start-line="8" selection-start-column="42" selection-end-line="8" selection-end-column="42" />
           <folding>
             <element signature="e#0#28#0" expanded="true" />
           </folding>
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/templates/404.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="330">
-          <caret line="22" column="14" lean-forward="true" selection-start-line="22" selection-start-column="14" selection-end-line="22" selection-end-column="14" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/templates/Account/login.html">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="315">
-          <caret line="21" column="26" lean-forward="true" selection-start-line="14" selection-start-column="8" selection-end-line="21" selection-end-column="26" />
+          <caret line="21" column="26" lean-forward="false" selection-start-line="14" selection-start-column="8" selection-end-line="21" selection-end-column="26" />
           <folding />
         </state>
       </provider>
@@ -1200,7 +1187,7 @@
     <entry file="file://$PROJECT_DIR$/Account/views.py">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="120">
-          <caret line="8" column="0" lean-forward="true" selection-start-line="8" selection-start-column="0" selection-end-line="8" selection-end-column="0" />
+          <caret line="8" column="0" lean-forward="false" selection-start-line="8" selection-start-column="0" selection-end-line="8" selection-end-column="0" />
           <folding>
             <element signature="e#0#59#0" expanded="true" />
           </folding>
@@ -1233,17 +1220,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/email_confirm.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="53">
-          <caret line="27" column="73" lean-forward="true" selection-start-line="27" selection-start-column="73" selection-end-line="27" selection-end-column="73" />
-          <folding>
-            <marker date="1508093170086" expanded="true" signature="765:842" ph="SELECT MAX(i... RateApp_userdata" />
-            <marker date="1508093170086" expanded="true" signature="765:860" ph="SELECT MAX(i... RateApp_userdata" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/templates/500.html">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="30">
@@ -1257,6 +1233,25 @@
         <state relative-caret-position="296">
           <caret line="24" column="12" lean-forward="false" selection-start-line="24" selection-start-column="12" selection-end-line="24" selection-end-column="12" />
           <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/templates/404.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="330">
+          <caret line="22" column="14" lean-forward="false" selection-start-line="22" selection-start-column="14" selection-end-line="22" selection-end-column="14" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/email_confirm.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="900">
+          <caret line="60" column="21" lean-forward="false" selection-start-line="60" selection-start-column="21" selection-end-line="60" selection-end-column="21" />
+          <folding>
+            <marker date="1508094020609" expanded="true" signature="765:842" ph="SELECT MAX(i... RateApp_userdata" />
+            <marker date="1508094020609" expanded="true" signature="765:860" ph="SELECT MAX(i... RateApp_userdata" />
+          </folding>
         </state>
       </provider>
     </entry>

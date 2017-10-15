@@ -32,32 +32,32 @@ def email_confirm(domain1):
     user = UserData.objects.get(login=new_user_username)
 
     # try to send mail
-
+    try:
         # set subject
-    subject = 'Sign Up Confirmation'
+        subject = 'Sign Up Confirmation'
         # set the 'from' address,
-    fromaddr = 'help.triplem@gmail.com'
+        fromaddr = 'help.triplem@gmail.com'
         # set the 'to' addresses,
-    toaddrs = new_user_email
+        toaddrs = new_user_email
         # set domain :
 
         # creating custom mail view
-    plaintext_path = (os.path.abspath('./')+'/templates/email/email.txt')
-    html_path = (os.path.abspath('./')+'/templates/email/email.html')
+        plaintext_path = (os.path.abspath('./')+'/templates/email/email.txt')
+        html_path = (os.path.abspath('./')+'/templates/email/email.html')
 
-    ctx = {'username': new_user_username, 'domain': domain, 'uid': urlsafe_base64_encode(force_bytes(new_user_id)), 'token': account_activation_token.make_token(user)}
+        ctx = {'username': new_user_username, 'domain': domain, 'uid': urlsafe_base64_encode(force_bytes(new_user_id)), 'token': account_activation_token.make_token(user)}
 
-    text_content = render_to_string(plaintext_path, ctx)
-    html_content = render_to_string(html_path, ctx)
+        text_content = render_to_string(plaintext_path, ctx)
+        html_content = render_to_string(html_path, ctx)
 
         # creating message
-    msg = EmailMultiAlternatives(subject, text_content, fromaddr, [toaddrs])
-    msg.attach_alternative(html_content, "text/html")
+        msg = EmailMultiAlternatives(subject, text_content, fromaddr, [toaddrs])
+        msg.attach_alternative(html_content, "text/html")
 
         # send message
+        msg.send()
 
-    msg.send()
-
-
-    user.delete()
+    except:
+        user.delete()
+        raise EOFError
 
