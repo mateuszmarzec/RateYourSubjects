@@ -53,6 +53,15 @@ def password_change(request):
 @login_required
 def user_info(request):
     user = UserData.objects.get(login=request.user.username)
-    user_data = [user.login, user.email, user.last_login, user.is_active]
-    user_data_titles = ['Login', 'Email', 'Last Login', 'Is Active']
-    return render(request, 'RateApp/user_info.html', {'user_data': user_data, 'titles': user_data_titles})
+    user_data = [user.login, user.email, user.last_login, user.is_active, user.registration_date]
+    user_data_titles = ['Login', 'Email', 'Last Login', 'Is Active', 'Registration Date']
+
+    # creating matrix used to show user info
+    user_info = [[0 for x in range(2)] for y in range(len(user_data))]
+    i = 0
+    for users in user_info:
+        users[1] = user_data[i]
+        users[0] = user_data_titles[i]
+        i = i + 1
+
+    return render(request, 'RateApp/user_info.html', {'user': user_info})

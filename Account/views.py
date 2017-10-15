@@ -5,7 +5,7 @@ from Account.tokens import account_activation_token
 from RateApp import forms, models, encoding_functions
 from django.shortcuts import render, redirect
 from django.contrib import messages
-import subprocess, os
+import subprocess, os, datetime
 
 def registration(request):
     if request.method == 'POST':

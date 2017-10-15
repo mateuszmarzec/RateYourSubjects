@@ -29,7 +29,7 @@ a:hover{
 }
 /* Form title style */
 #form-title{
-    background-color: white;
+    background-color: transparent;
     margin: 0px;
     padding:0px;
     text-align: center;
@@ -48,17 +48,10 @@ a:hover{
 }
 
 /* Table style */
-thead {
+.thead-inverse th {
     background-color: #343a40 !important;
-    color: #868e96 !important;
+    color: #868e96;
 }
-tbody{
-    background-color: #e9ecef !important;
-}
-thead > tr, tbody > tr {
-    font-size:10px;
-}
-
 /* Loader style */
 .loader {
     display: none;
@@ -88,6 +81,8 @@ thead > tr, tbody > tr {
   0% { transform: rotate(0deg); }
   100% { transform: rotate(360deg); }
 }
+
+
 
 
 

@@ -18,16 +18,12 @@
                           </div>
                         </div>
                     </div>
-                    <table class="table">
-                        <thead>
-                            <tr>
-                                {% for field in titles %}<th>{{ field }}</th>{% endfor %}
-                            </tr>
+                    <table class="table table-bordered">
+                        <thead class="thead-inverse">
+                        <tr><th><i class="fa">Param</i></th><th><i class="fa">Value</i></th></tr>
                         </thead>
                         <tbody>
-                            <tr>
-                                {% for field in user_data %}<td>{{ field }}</td>{% endfor %}
-                            </tr>
+                        {% for field in user %}<tr>{% for users in field %}<td><i class="fa">{{ users }}</i></td>{% endfor %}</tr>{% endfor %}
                         </tbody>
                     </table>
     </div>

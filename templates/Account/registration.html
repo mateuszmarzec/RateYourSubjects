@@ -53,7 +53,8 @@
     </form>
 </div>
 
-<div id="loader" class="loader"></div>
+
+   <!-- Narazie nie działa loader :(, pieśń przyszłości <div id="loader" class="loader"></div> -->
 
 {% endblock %}
 
@@ -82,18 +83,24 @@
 {% endblock %}
 
 {% block scripts %}
+    <!-- Do loadera
 <script>
     function showLoader(){
         var obj = document.getElementById("loader").style.display = "block"
     }
 
-    jQuery(document).on('click','#reg-submit',function(){
-        if ((document.getElementById('login').value != '') && ((document.getElementById('password').value).length < 6) &&
-            ((document.getElementById('confirm_password').value) < 6) && ((document.getElementById('email').value).length < 6)
-            && !((document.getElementById('email').value.contains('@')))){
-        showLoader();
-        document.getElementById('to-loader').style.opacity = '0.3';
+    jQuery(document).on('click','#reg-submit',function() {
+        if (!((document.getElementById('login').value != '') && ((document.getElementById('password').value).length > 5) &&
+            ((document.getElementById('confirm_password').value).length > 5) && ((document.getElementById('email').value).length > 5)
+            && ((document.getElementById('email').value).indexOf('@') >= 0))) {
+        }
+            else{
+            alert("as");
+            showLoader();
+            document.getElementById('to-loader').style.opacity = '0.3';
+
         }
     });
 </script>
+    -->
 {% endblock %}
