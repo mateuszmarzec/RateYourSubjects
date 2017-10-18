@@ -1,11 +1,11 @@
-from django.contrib.auth.models import User
 from django.contrib.auth.decorators import login_required
 from django.shortcuts import render, redirect
 from . import forms
-from .models import UserData
+from .models import UserData, Rate, Teacher, Subject
 from django.contrib import messages
 from django.http import Http404
 from . import encoding_functions
+from . import additional_scripts
 
 
 
@@ -13,7 +13,25 @@ from . import encoding_functions
 
 @login_required
 def home(request):
-    return render(request, 'RateApp/home.html')
+
+    subjects = Subject.objects.all().values_list('shortcut', flat=True)
+    teachers = Teacher.objects.all().values_list()
+
+    if request.method == 'POST':
+        form = forms.RateForm(request.POST)
+        if form.is_valid():
+            subject = form.cleaned_data['subject']
+            leader = form.cleaned_data['leader']
+            description = form.cleaned_data['description']
+            how_interesting = form.cleaned_data['how_interesting']
+            how_easy = form.cleaned_data['how_easy']
+
+            rate = Rate(how_interesting=how_interesting, how_easy=how_easy, leader=Teacher.objects.get(first_name=leader),
+                        description=description, subject=Subject.objects.get(name=subject), user=UserData.objects.get(login=request.user.username))
+            rate.save()
+            return render(request, 'RateApp/home.html', {'form': form})
+    form = forms.RateForm()
+    return render(request, 'RateApp/home.html', {'form': form, 'subjects': subjects, 'teachers': teachers})
 
 @login_required
 def password_change(request):
@@ -57,11 +75,31 @@ def user_info(request):
     user_data_titles = ['Login', 'Email', 'Last Login', 'Is Active', 'Registration Date']
 
     # creating matrix used to show user info
-    user_info = [[0 for x in range(2)] for y in range(len(user_data))]
-    i = 0
-    for users in user_info:
-        users[1] = user_data[i]
-        users[0] = user_data_titles[i]
-        i = i + 1
+    user_info = additional_scripts.create_two_dem_arr(user_data, user_data_titles)
+    return render(request, 'RateApp/user_info.html', {'user_info': user_info})
 
-    return render(request, 'RateApp/user_info.html', {'user': user_info})
+@login_required
+def rate(request):
+
+    subjects = Subject.objects.all().values_list('shortcut', flat=True)
+    teachers = Teacher.objects.all().values_list()
+
+    if request.method == 'POST':
+        form = forms.RateForm(request.POST)
+        if form.is_valid():
+            subject = form.cleaned_data['subject']
+            leader = form.cleaned_data['leader']
+            how_interesting = form.cleaned_data['how_interesting']
+            how_easy = form.cleaned_data['how_easy']
+            description = form.cleaned_data['description']
+
+            rate = Rate(how_interesting=how_interesting, how_easy=how_easy,
+                        leader=Teacher.objects.get(first_name=leader),
+                        description=description, subject=Subject.objects.get(name=subject),
+                        user=UserData.objects.get(login=request.user.username))
+            rate.save()
+            return render(request, 'RateApp/rate.html', {'form': form})
+    form = forms.RateForm()
+    return render(request, 'RateApp/rate.html', {'form': form, 'subjects': subjects, 'teachers': teachers})
+
+

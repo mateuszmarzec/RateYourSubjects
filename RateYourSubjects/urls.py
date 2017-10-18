@@ -14,14 +14,15 @@ Including another URLconf
     2. Add a URL to urlpatterns:  url(r'^blog/', include('blog.urls'))
 """
 from django.conf.urls import url, include
-from django.contrib import admin
-from Account import forms
+from . import admin
+from django.contrib import admin as adm
+from Account import forms, views
 from django.views.generic.base import RedirectView
 from django.contrib.auth import views as auth_views
 
 urlpatterns = [
     url(r'^$', RedirectView.as_view(url='/home/')),
-    url(r'^admin/', admin.site.urls),
+    url(r'^admin/', include(admin.site.urls)),
     url(r'^account/', include('Account.urls')),
     url(r'^', include('RateApp.urls')),
     url(r'^password_reset/$',
@@ -33,3 +34,4 @@ urlpatterns = [
     url(r'^reset/done/$', auth_views.password_reset_complete, name='password_reset_complete'),
 
 ]
+adm.autodiscover()

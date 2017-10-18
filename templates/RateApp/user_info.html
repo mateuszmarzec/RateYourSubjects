@@ -6,7 +6,7 @@
 
     <div class="jumbotron jumbotron-fluid" id="site-title">
       <div class="container">
-        <h1 class="display-4">User Info</h1>
+          <h1> <p class="lead">User Info</p></h1>
         <p class="lead">Something about You</p>
       </div>
     </div>
@@ -23,7 +23,7 @@
                         <tr><th><i class="fa">Param</i></th><th><i class="fa">Value</i></th></tr>
                         </thead>
                         <tbody>
-                        {% for field in user %}<tr>{% for users in field %}<td><i class="fa">{{ users }}</i></td>{% endfor %}</tr>{% endfor %}
+                        {% for field in user_info %}<tr>{% for users in field %}<td><i class="fa">{{ users }}</i></td>{% endfor %}</tr>{% endfor %}
                         </tbody>
                     </table>
     </div>

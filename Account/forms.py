@@ -6,6 +6,7 @@ from django.contrib.sites.shortcuts import get_current_site
 from django.core.exceptions import ValidationError
 from django.utils.encoding import force_bytes
 from django.utils.http import urlsafe_base64_encode
+from django.contrib.auth.forms import AuthenticationForm
 from RateApp.models import UserData
 from RateApp import encoding_functions
 
@@ -41,3 +42,4 @@ class NewPasswordSave(SetPasswordForm):
             self.user.save()
             db_user.save()
         return self.user
+

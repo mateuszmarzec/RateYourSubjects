@@ -1,15 +1,50 @@
 {% extends 'base.html' %}
 
-{% block title %} home {% endblock %}
+{% block title %} Home {% endblock %}
 
 {% block content %}
 
     <div class="jumbotron jumbotron-fluid" id="site-title">
       <div class="container">
-        <h1 class="display-4">Welcome to "Rate Your Subjects" App!</h1>
+          <h1><p class="lead">Welcome to "Rate Your Subjects" App!</p></h1>
         <p class="lead">RYS is a simple django app helping You enjoy your students life</p>
       </div>
     </div>
+        <div id="reg-form" class="container">
+                    <div class="form-group">
+                        <div id="form-title" class="jumbotron jumbotron">
+                          <div class="container">
+                              <h1 class="lead">Actions</h1>
+                          </div>
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <form method="POST" class="post-form"> {% csrf_token %}
+                        <div class="form-row">
+                            <div class="form-group col-md-12">
+                                <input href="sdas.html" class="form-control" type="text" name="subject" value="" id="subject-input">
+                                <button id="reg-submit" type="submit" class="btn btn-primary">Find Subject</button>
+                            </div>
+                        </div>
+                        </form>
+                        <form method="POST" class="post-form"> {% csrf_token %}
+                        <div class="form-row">
+                            <div class="form-group col-md-12">
+                                <input style="width: 70%" href="sad.html" class="form-control" type="text" name="subject" value="" id="subject-input">
+                                <button style="width: 20%;" id="reg-submit" type="submit" class="btn btn-primary">Find Teacher</button>
+                            </div>
+                        </div>
+                        </form>
+                    </div>
+            <div class="form-group row">
+              <div class="offset-sm-2 col-sm-12">
+                  <form method="POST" class="post-form"> {% csrf_token %}
+                  <a href="{% url 'RateApp:rate' %}"><button type="button" id="reg-submit" class="btn btn-primary">Add Rate</button></a>
+                  </form>
+            </div>
+        </div>
+    </div>
+        </div>
 
 {% endblock %}
 
@@ -34,5 +69,17 @@
             </div>
             {% endfor %}
         {% endif %}
+
+
+{% endblock %}
+
+{% block scripts %}
+<script>
+    function setValue(choosen_id){
+        var option = document.getElementById(choosen_id).innerHTML;
+        document.getElementById('subject-input').value = option;
+        $(".close").click();
+    }
+</script>
 
 {% endblock %}

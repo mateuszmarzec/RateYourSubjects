@@ -14,7 +14,7 @@
     margin-top: 20px;
 }
 div button:not(.close){
-    width:100% !important;
+    width:100% ;
     border-color:#343a40 !important;
     background-color:#343a40 !important;
     color:#868e96;
@@ -40,8 +40,28 @@ a:hover{
 }
 
 /* Site header style */
-#site-title{
-    padding: 30px;
+@media (max-width: 767px) {
+    #site-title .container h1 p{
+        font-size: 30px;
+    }
+    #site-title .container > p{
+        font-size: 15px;
+    }
+    #site-title {
+        padding: 20px;
+    }
+}
+@media (min-width: 768px) {
+    #site-title .container h1 p{
+        font-size: 40px;
+    }
+    #site-title .container > p{
+        font-size: 20px;
+    }
+    #site-title {
+        padding: 30px;
+    }
+
 }
 .jumbotron-fluid .container{
     text-align: center;
@@ -80,6 +100,9 @@ a:hover{
 @keyframes spin {
   0% { transform: rotate(0deg); }
   100% { transform: rotate(360deg); }
+}
+#reg-submit{
+    cursor: pointer !important;
 }
 
 

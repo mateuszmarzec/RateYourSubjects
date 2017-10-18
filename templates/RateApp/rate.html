@@ -1,0 +1,122 @@
+{% extends 'base.html' %}
+
+{% block title %} Rate {% endblock %}
+
+{% block content %}
+
+    <div class="jumbotron jumbotron-fluid" id="site-title">
+      <div class="container">
+          <h1><p class="lead">Welcome to "Rate Your Subjects" App!</p></h1>
+        <p class="lead">RYS is a simple django app helping You enjoy your students life</p>
+      </div>
+    </div>
+    <form method="POST" class="post-form"> {% csrf_token %}
+        <div id="reg-form" class="container">
+                    <div class="form-group">
+                        <div id="form-title" class="jumbotron jumbotron">
+                          <div class="container">
+                              <h1 class="lead">Rate Subject</h1>
+                          </div>
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <div class="form-row">
+                            <div class="form-group col-md-4">
+                                <button id="reg-submit" type="button" class="btn btn-primary" data-toggle="modal" data-target="#choose-subject-modal">Subject</button>
+                                <input class="form-control" type="text" name="subject" value="" id="subject-input" readonly>
+                            </div>
+                            <div class="form-group col-md-8">
+                                <button id="reg-submit" type="button" class="btn btn-primary" data-toggle="modal" data-target="#choose-teacher-modal">Teacher</button>
+                                <input class="form-control" type="text" name="subject" value="" id="teacher-input" readonly>
+
+                            </div>
+
+                    </div>
+            <div class="form-group row">
+              <div class="offset-sm-2 col-sm-12">
+                <button id="reg-submit" type="submit" class="btn btn-primary">Add</button>
+            </div>
+        </div>
+    </div>
+        </div>
+    </form>
+
+    <!-- Modal -->
+        <div class="modal fade" id="choose-subject-modal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+          <div class="modal-dialog" role="document">
+            <div class="modal-content">
+              <div class="modal-header">
+                <h5 class="modal-title" id="exampleModalLabel">Modal title</h5>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                  <span aria-hidden="true">&times;</span>
+                </button>
+              </div>
+              <div class="modal-body">
+                  {% for field in subjects %}<a href="#" onclick="setValue(this.id)" id="subject-option_{{ field }}">{{ field }}</a>, {% endfor %}
+              </div>
+              <div class="modal-footer">
+                <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                <button type="button" class="btn btn-primary" >Save changes</button>
+              </div>
+            </div>
+          </div>
+        </div>
+
+    <!-- Modal -->
+        <div class="modal fade" id="choose-teacher-modal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+          <div class="modal-dialog" role="document">
+            <div class="modal-content">
+              <div class="modal-header">
+                <h5 class="modal-title" id="exampleModalLabel">Modal title</h5>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                  <span aria-hidden="true">&times;</span>
+                </button>
+              </div>
+              <div class="modal-body">
+                  {% for teacher in teachers %}<a href="#" onclick="setValue(this.id)" id="subject-option_{{ teacher.id }}">{{ teacher.1 }} {{ teacher.2 }}</a>, {% endfor %}
+              </div>
+              <div class="modal-footer">
+                <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                <button type="button" class="btn btn-primary" >Save changes</button>
+              </div>
+            </div>
+          </div>
+        </div>
+
+{% endblock %}
+
+{% block error %}
+
+        {% if form.errors %}
+            <div class="alert alert-danger alert-dismissible fade show" role="alert">
+                <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+                <strong>Error!</strong> The login you've entered doesn't match any account, or password is wrong.
+            </div>
+        {% endif %}
+
+        {% if messages %}
+            {% for message in messages %}
+            <div class="alert alert-success alert-dismissible fade show" role="alert">
+                <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+                <strong>{{ message.extra_tags }}</strong> {{ message }}
+            </div>
+            {% endfor %}
+        {% endif %}
+
+
+{% endblock %}
+
+{% block scripts %}
+<script>
+    function setValue(choosen_id){
+        var option = document.getElementById(choosen_id).innerHTML;
+        document.getElementById('subject-input').value = option;
+        $(".close").click();
+    }
+</script>
+
+{% endblock %}

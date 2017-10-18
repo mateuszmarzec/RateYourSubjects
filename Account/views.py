@@ -1,11 +1,37 @@
+import warnings
+
+from django.contrib.auth.base_user import BaseUserManager
+from django.contrib.auth.models import Group, User
+from django.contrib.auth.admin import GroupAdmin, UserAdmin
+from django.views.decorators.csrf import csrf_protect
+
+from . import forms as account_forms
+from django.contrib.auth.views import LoginView
 from django.contrib.sites.shortcuts import get_current_site
+from django.http import HttpResponseRedirect
+from django.urls import reverse
+from django.utils.deprecation import RemovedInDjango21Warning
 from django.utils.encoding import force_text
 from django.utils.http import urlsafe_base64_decode
 from Account.tokens import account_activation_token
 from RateApp import forms, models, encoding_functions
-from django.shortcuts import render, redirect
+from django.shortcuts import render, redirect, resolve_url
 from django.contrib import messages
-import subprocess, os, datetime
+import subprocess, os
+from django.contrib import admin
+from django.contrib.auth import views, REDIRECT_FIELD_NAME
+
+from RateYourSubjects import settings
+
+# subclass login method to logout user when he manually go to login view
+def login(request, *args, **kwargs):
+    warnings.warn(
+        'The login() view is superseded by the class-based LoginView().',
+        RemovedInDjango21Warning, stacklevel=2
+    )
+    if (request.user.is_authenticated):
+        return redirect('Account:logout')
+    return LoginView.as_view(**kwargs)(request, *args, **kwargs)
 
 def registration(request):
     if request.method == 'POST':
@@ -39,6 +65,8 @@ def registration(request):
                         return render(request, 'Account/registration.html', {'form': form})
         return render(request, 'Account/registration.html', {'form': form})
     else:
+        if(request.user.is_authenticated):
+            return redirect('Account:logout')
         form = forms.RegisterForm()
         return render(request, 'Account/registration.html', {'form': form})
 

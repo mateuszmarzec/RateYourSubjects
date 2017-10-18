@@ -6,7 +6,7 @@
 <div id="to-loader">
     <div class="jumbotron jumbotron-fluid" id="site-title">
         <div class="container">
-            <h1 class="display-4">Sign Up to RYS</h1>
+            <h1><p class="lead">Sign Up to RYS</p></h1>
             <p class="lead">After Sign Up we will send confirmation email to You. To confirm your email account, just use link You can find in the message</p>
           </div>
     </div>
@@ -46,15 +46,13 @@
                     </div>
             <div class="form-group row">
               <div class="offset-sm-2 col-sm-12">
-                <button id="reg-submit" type="submit" class="btn btn-primary">Sign up</button>
+                <button id="reg-submit" type="submit" class="btn btn-primary" onclick="showLoader()">Sign up</button>
             </div>
         </div>
     </div>
     </form>
 </div>
 
-
-   <!-- Narazie nie działa loader :(, pieśń przyszłości <div id="loader" class="loader"></div> -->
 
 {% endblock %}
 
@@ -83,24 +81,6 @@
 {% endblock %}
 
 {% block scripts %}
-    <!-- Do loadera
-<script>
-    function showLoader(){
-        var obj = document.getElementById("loader").style.display = "block"
-    }
 
-    jQuery(document).on('click','#reg-submit',function() {
-        if (!((document.getElementById('login').value != '') && ((document.getElementById('password').value).length > 5) &&
-            ((document.getElementById('confirm_password').value).length > 5) && ((document.getElementById('email').value).length > 5)
-            && ((document.getElementById('email').value).indexOf('@') >= 0))) {
-        }
-            else{
-            alert("as");
-            showLoader();
-            document.getElementById('to-loader').style.opacity = '0.3';
 
-        }
-    });
-</script>
-    -->
 {% endblock %}
