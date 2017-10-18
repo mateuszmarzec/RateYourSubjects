@@ -14,37 +14,52 @@
                     <div class="form-group">
                         <div id="form-title" class="jumbotron jumbotron">
                           <div class="container">
-                              <h1 class="lead">Actions</h1>
+                              <h2 class="lead">Search by Teachers</h2>
                           </div>
                         </div>
-                    </div>
-                    <div class="form-group">
                         <form method="POST" class="post-form"> {% csrf_token %}
                         <div class="form-row">
-                            <div class="form-group col-md-12">
-                                <input href="sdas.html" class="form-control" type="text" name="subject" value="" id="subject-input">
-                                <button id="reg-submit" type="submit" class="btn btn-primary">Find Subject</button>
-                            </div>
-                        </div>
-                        </form>
-                        <form method="POST" class="post-form"> {% csrf_token %}
-                        <div class="form-row">
-                            <div class="form-group col-md-12">
-                                <input style="width: 70%" href="sad.html" class="form-control" type="text" name="subject" value="" id="subject-input">
-                                <button style="width: 20%;" id="reg-submit" type="submit" class="btn btn-primary">Find Teacher</button>
-                            </div>
+                            <div class="col-lg-12">
+                                <div class="input-group">
+                                  <input name="teacher" onclick="cleanInput1()" required type="text" class="form-control" placeholder="Search for..." aria-label="Search for..." id="id_teacher">
+                                  <span class="input-group-btn">
+                                    <button class="btn btn-secondary" type="submit">Search!</button>
+                                  </span>
+                                </div>
+                              </div>
                         </div>
                         </form>
                     </div>
-            <div class="form-group row">
+                        <div class="form-group">
+                            <div id="form-title" class="jumbotron jumbotron">
+                                <div class="container">
+                                    <h2 class="lead">Search by Subject</h2>
+                                </div>
+                            </div>
+                            <form method="POST" class="post-form"> {% csrf_token %}
+                            <div class="form-row">
+                                <div class="col-lg-12">
+                                    <div class="input-group">
+                                      <input name="subject" required onclick="cleanInput2" type="text" class="form-control" placeholder="Search for..." aria-label="Search for..." id="id_subject">
+                                      <span class="input-group-btn">
+                                        <button class="btn btn-secondary" type="submit">Search!</button>
+                                      </span>
+                                    </div>
+                                  </div>
+                            </div>
+                            </form>
+                        </div>
+            <div class="form-group">
+                <div id="form-title" class="jumbotron jumbotron">
+                          <div class="container">
+                              <h2 class="lead">Add own Rate</h2>
+                          </div>
+                </div>
               <div class="offset-sm-2 col-sm-12">
-                  <form method="POST" class="post-form"> {% csrf_token %}
                   <a href="{% url 'RateApp:rate' %}"><button type="button" id="reg-submit" class="btn btn-primary">Add Rate</button></a>
-                  </form>
             </div>
         </div>
     </div>
-        </div>
 
 {% endblock %}
 
@@ -74,12 +89,17 @@
 {% endblock %}
 
 {% block scripts %}
-<script>
-    function setValue(choosen_id){
-        var option = document.getElementById(choosen_id).innerHTML;
-        document.getElementById('subject-input').value = option;
-        $(".close").click();
-    }
-</script>
 
+    <script>
+        function cleanInput1(){
+            document.getElementById('id_subject').value = null;
+        }
+    </script>
+
+    <script>
+        function cleanInput2(){
+            document.getElementById('id_teacher').value = null;
+        }
+
+    </script>
 {% endblock %}

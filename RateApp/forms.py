@@ -26,3 +26,6 @@ class RateForm(forms.Form):
     description = forms.CharField(max_length=500)
 
 
+class SearchForm(forms.Form):
+    teacher = forms.CharField(required=False)
+    subject = forms.CharField(required=False)

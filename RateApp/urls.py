@@ -8,6 +8,7 @@ urlpatterns = [
     url(r'^user/password_change/$', views.password_change, name='password_change'),
     url(r'^user/user_info$', views.user_info, name='user_info'),
     url(r'^user/rate$', views.rate, name='rate'),
+    url(r'^home/search/(?P<fraze>\w+)$', views.search, name='search'),
 
 
 ]

@@ -13,25 +13,15 @@ from . import additional_scripts
 
 @login_required
 def home(request):
-
-    subjects = Subject.objects.all().values_list('shortcut', flat=True)
-    teachers = Teacher.objects.all().values_list()
-
     if request.method == 'POST':
-        form = forms.RateForm(request.POST)
+        form = forms.SearchForm(request.POST)
         if form.is_valid():
             subject = form.cleaned_data['subject']
-            leader = form.cleaned_data['leader']
-            description = form.cleaned_data['description']
-            how_interesting = form.cleaned_data['how_interesting']
-            how_easy = form.cleaned_data['how_easy']
+            leader = form.cleaned_data['teacher']
 
-            rate = Rate(how_interesting=how_interesting, how_easy=how_easy, leader=Teacher.objects.get(first_name=leader),
-                        description=description, subject=Subject.objects.get(name=subject), user=UserData.objects.get(login=request.user.username))
-            rate.save()
-            return render(request, 'RateApp/home.html', {'form': form})
-    form = forms.RateForm()
-    return render(request, 'RateApp/home.html', {'form': form, 'subjects': subjects, 'teachers': teachers})
+            return redirect('RateApp:search', subject)
+    form = forms.SearchForm()
+    return render(request, 'RateApp/home.html', {'form': form})
 
 @login_required
 def password_change(request):
@@ -102,4 +92,6 @@ def rate(request):
     form = forms.RateForm()
     return render(request, 'RateApp/rate.html', {'form': form, 'subjects': subjects, 'teachers': teachers})
 
-
+@login_required
+def search(request, fraze):
+    raise Http404
