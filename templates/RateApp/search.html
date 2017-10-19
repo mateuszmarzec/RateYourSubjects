@@ -1,0 +1,76 @@
+{% extends 'base.html' %}
+
+{% block title %} Search {% endblock %}
+
+{% block content %}
+
+    <div class="jumbotron jumbotron-fluid" id="site-title">
+      <div class="container">
+          <h1><p class="lead">Welcome to "Rate Your Subjects" App!</p></h1>
+        <p class="lead">RYS is a simple django app helping You enjoy your students life</p>
+      </div>
+    </div>
+        <div id="reg-form" class="container-fluid" style="width: 80%">
+                    <div class="form-group">
+                        <div id="form-title" class="jumbotron jumbotron">
+                          <div class="container">
+                              <h1 class="lead"></h1>
+                          </div>
+                        </div>
+                    </div>
+                    <table class="table table-bordered">
+                        <thead class="thead-inverse">
+                            <tr>
+                                <th>1</th>
+                                <th>2</th>
+                                <th>3</th>
+                                <th>4</th>
+                                <th>5</th>
+                                <th>6</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            {% for rate in rates %}
+                                <tr>
+                                    <td>{{ rate.subject_id }}</td>
+                                    <td>{{ rate.leader_id }}</td>
+                                    <td>{{ rate.user }}</td>
+                                    <td>{{ rate.how_interesting }}</td>
+                                    <td>{{ rate.how_easy }}</td>
+                                    <td>{{ rate.date }}</td>
+                                </tr>
+                            {% endfor %}
+                        </tbody>
+                    </table>
+            </div>
+
+{% endblock %}
+
+{% block error %}
+
+        {% if form.errors %}
+            <div class="alert alert-danger alert-dismissible fade show" role="alert">
+                <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+                <strong>Error!</strong> The login you've entered doesn't match any account, or password is wrong.
+            </div>
+        {% endif %}
+
+        {% if messages %}
+            {% for message in messages %}
+            <div class="alert alert-success alert-dismissible fade show" role="alert">
+                <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+                <strong>{{ message.extra_tags }}</strong> {{ message }}
+            </div>
+            {% endfor %}
+        {% endif %}
+
+
+{% endblock %}
+
+{% block scripts %}
+
+{% endblock %}

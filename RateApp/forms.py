@@ -19,13 +19,18 @@ class PasswordChangeForm(forms.Form):
 
 ### Rate Staff
 class RateForm(forms.Form):
-    subject = forms.CharField()
-    leader = forms.CharField()
-    how_interesting = forms.IntegerField()
-    how_easy = forms.IntegerField()
-    description = forms.CharField(max_length=500)
+    subject = forms.CharField(required=False)
+    leader = forms.CharField(required=False)
+    how_interesting = forms.IntegerField(initial=50)
+    how_easy = forms.IntegerField(initial=50)
+    description = forms.CharField(required=False)
+
 
 
 class SearchForm(forms.Form):
     teacher = forms.CharField(required=False)
     subject = forms.CharField(required=False)
+
+
+
+

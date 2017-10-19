@@ -19,7 +19,11 @@ def home(request):
             subject = form.cleaned_data['subject']
             leader = form.cleaned_data['teacher']
 
-            return redirect('RateApp:search', subject)
+            if leader == '':
+                return redirect('RateApp:search', subject)
+            else:
+                return redirect('RateApp:search', leader)
+
     form = forms.SearchForm()
     return render(request, 'RateApp/home.html', {'form': form})
 
@@ -83,9 +87,11 @@ def rate(request):
             how_easy = form.cleaned_data['how_easy']
             description = form.cleaned_data['description']
 
+            teacher = leader.split()
+
             rate = Rate(how_interesting=how_interesting, how_easy=how_easy,
-                        leader=Teacher.objects.get(first_name=leader),
-                        description=description, subject=Subject.objects.get(name=subject),
+                        leader=Teacher.objects.get(first_name=teacher[0], last_name=teacher[1]),
+                        description=description, subject=Subject.objects.get(shortcut=subject),
                         user=UserData.objects.get(login=request.user.username))
             rate.save()
             return render(request, 'RateApp/rate.html', {'form': form})
@@ -94,4 +100,5 @@ def rate(request):
 
 @login_required
 def search(request, fraze):
-    raise Http404
+    rates = Rate.objects.all()
+    return render(request, 'RateApp/search.html', {'rates': rates})
