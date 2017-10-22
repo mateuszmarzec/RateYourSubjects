@@ -1,3 +1,5 @@
+from RateApp.models import Rate, Teacher, Subject
+
 # Function to get arr from two lists
 def create_two_dem_arr(list_a, list_b):
     arr = [[0 for x in range(2)] for y in range(len(list_a))]
@@ -29,3 +31,20 @@ def get_objects_as_matrix(cls, name, name2=None, additional=None):
             matrix[x][y + 1] = objects[x]
         x = x + 1
     return matrix
+
+
+def get_average(id, type):
+
+    if type == 'subject':
+        how_interesting = Rate.objects.filter(subject_id=id).values_list('how_interesting', flat=True)
+        how_easy = Rate.objects.filter(subject_id=id).values_list('how_interesting', flat=True)
+        how_interesting_av = sum(how_interesting)/len(how_interesting)
+        how_easy_av = int(sum(how_easy) / len(how_easy))
+        return how_interesting_av, how_easy_av
+    else :
+        how_interesting = Rate.objects.filter(leader_id=id).values_list('how_interesting', flat=True)
+        how_easy = Rate.objects.filter(leader_id=id).values_list('how_interesting', flat=True)
+        how_interesting_av = sum(how_interesting)/len(how_interesting)
+        how_easy_av = int(sum(how_easy) / len(how_easy))
+        return how_interesting_av, how_easy_av
+

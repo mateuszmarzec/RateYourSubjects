@@ -94,6 +94,11 @@ def rate(request):
                         description=description, subject=Subject.objects.get(shortcut=subject),
                         user=UserData.objects.get(login=request.user.username))
             rate.save()
+
+            subject = Subject.objects.get(shortcut=subject)
+            subject.leaders.add(Teacher.objects.get(first_name=teacher[0], last_name=teacher[1]))
+            subject.save()
+
             messages.success(request, 'Rate added successfully!', 'Success')
             return redirect('RateApp:home')
     form = forms.RateForm()
@@ -101,10 +106,16 @@ def rate(request):
 
 @login_required
 def search_subject(request, fraze):
-    rates = Rate.objects.filter(subject = get_object_or_404(Subject, shortcut=fraze))
-    return render(request, 'RateApp/search.html', {'rates': rates})
+    #rates = Rate.objects.filter(subject = get_object_or_404(Subject, shortcut=fraze))
+    subject = get_object_or_404(Subject, shortcut=fraze)
+    averange = additional_scripts.get_average(id=subject.id, type='subject')
+    teachers = Teacher.objects.filter(subject=subject).values_list()
+    return render(request, 'RateApp/search_subject.html', {'subject': subject, 'av': averange, 'teachers': teachers})
 
 @login_required
 def search_teacher(request, fraze):
-    rates = Rate.objects.filter(leader = get_object_or_404(Teacher, last_name=fraze))
-    return render(request, 'RateApp/search.html', {'rates': rates})
+    #rates = Rate.objects.filter(leader = get_object_or_404(Teacher, last_name=fraze))
+    teacher = get_object_or_404(Teacher, last_name=fraze)
+    averange = additional_scripts.get_average(id=teacher.id, type='teacher')
+    subjects = Subject.objects.filter(leaders=teacher).values_list()
+    return render(request, 'RateApp/search_teacher.html', {'subjects': subjects, 'av': averange, 'teacher': teacher})

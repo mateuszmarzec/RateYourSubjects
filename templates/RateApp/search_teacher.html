@@ -10,7 +10,7 @@
         <p class="lead">RYS is a simple django app helping You enjoy your students life</p>
       </div>
     </div>
-        <div id="reg-form" class="container-fluid" style="width: 80%">
+        <div id="reg-form" class="container">
                     <div class="form-group">
                         <div id="form-title" class="jumbotron jumbotron">
                           <div class="container">
@@ -18,30 +18,34 @@
                           </div>
                         </div>
                     </div>
-                    <table class="table table-bordered" style="font-size: 12px;">
+                    <table class="table table-bordered">
                         <thead class="thead-inverse">
                             <tr>
-                                <th>Subject</th>
-                                <th>Teacher</th>
-                                <th>User</th>
-                                <th>Int.</th>
-                                <th>Easy</th>
-                                <th>Date</th>
-                                <th>Description</th>
+                                <th>Param</th>
+                                <th>Value</th>
                             </tr>
                         </thead>
                         <tbody>
-                            {% for rate in rates %}
                                 <tr>
-                                    <td>{{ rate.subject.shortcut }}</td>
-                                    <td>{{ rate.leader.first_name }} {{ rate.leader.last_name }}</td>
-                                    <td>{{ rate.user.login }}</td>
-                                    <td>{{ rate.how_interesting }}</td>
-                                    <td>{{ rate.how_easy }}</td>
-                                    <td>{{ rate.date }}</td>
-                                    <td>{{ rate.description }}</td>
+                                    <td>First Name</td>
+                                    <td>{{ teacher.first_name }}</td>
                                 </tr>
-                            {% endfor %}
+                                <tr>
+                                    <td>Last Name</td>
+                                    <td>{{ teacher.last_name }}</td>
+                                </tr>
+                                <tr>
+                                    <td>Subjects</td>
+                                    <td>{% for subject in subjects %} {{ subject.1 }} <br/> {% endfor %}</td>
+                                </tr>
+                                <tr>
+                                    <td>How Interesting</td>
+                                    <td>{{ av.0 }}</td>
+                                </tr>
+                                <tr>
+                                    <td>How Easy</td>
+                                    <td>{{ av.1 }}</td>
+                                </tr>
                         </tbody>
                     </table>
             </div>
