@@ -67,11 +67,6 @@ a:hover{
     text-align: center;
 }
 
-/* Table style */
-.thead-inverse th {
-    background-color: #343a40 !important;
-    color: #868e96;
-}
 /* Loader style */
 .loader {
     display: none;

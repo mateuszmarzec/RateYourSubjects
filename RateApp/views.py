@@ -133,4 +133,4 @@ def teacher_details(request, id):
     teacher = get_object_or_404(Teacher, pk=id)
     rates = Rate.objects.filter(leader=teacher)
     teacher_name = teacher.first_name + " " + teacher.last_name
-    return render(request, 'RateApp/subject_details.html', {'rates': rates, 'subject': teacher_name})
+    return render(request, 'RateApp/teacher_details.html', {'rates': rates, 'teacher': teacher_name})
