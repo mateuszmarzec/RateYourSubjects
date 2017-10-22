@@ -94,7 +94,8 @@ def rate(request):
                         description=description, subject=Subject.objects.get(shortcut=subject),
                         user=UserData.objects.get(login=request.user.username))
             rate.save()
-            return render(request, 'RateApp/rate.html', {'form': form})
+            messages.success(request, 'Rate added successfully!', 'Success')
+            return redirect('RateApp:home')
     form = forms.RateForm()
     return render(request, 'RateApp/rate.html', {'form': form, 'subjects': subjects, 'teachers': teachers})
 
