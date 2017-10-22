@@ -1,5 +1,5 @@
 from django.contrib.auth.decorators import login_required
-from django.shortcuts import render, redirect
+from django.shortcuts import render, redirect, get_object_or_404
 from . import forms
 from .models import UserData, Rate, Teacher, Subject
 from django.contrib import messages
@@ -20,9 +20,9 @@ def home(request):
             leader = form.cleaned_data['teacher']
 
             if leader == '':
-                return redirect('RateApp:search', subject)
+                return redirect('RateApp:search_subject', subject)
             else:
-                return redirect('RateApp:search', leader)
+                return redirect('RateApp:search_teacher', leader)
 
     form = forms.SearchForm()
     return render(request, 'RateApp/home.html', {'form': form})
@@ -100,6 +100,11 @@ def rate(request):
     return render(request, 'RateApp/rate.html', {'form': form, 'subjects': subjects, 'teachers': teachers})
 
 @login_required
-def search(request, fraze):
-    rates = Rate.objects.all()
+def search_subject(request, fraze):
+    rates = Rate.objects.filter(subject = get_object_or_404(Subject, shortcut=fraze))
+    return render(request, 'RateApp/search.html', {'rates': rates})
+
+@login_required
+def search_teacher(request, fraze):
+    rates = Rate.objects.filter(leader = get_object_or_404(Teacher, last_name=fraze))
     return render(request, 'RateApp/search.html', {'rates': rates})

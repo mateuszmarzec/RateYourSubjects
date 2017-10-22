@@ -18,23 +18,23 @@
                           </div>
                         </div>
                     </div>
-                    <table class="table table-bordered">
+                    <table class="table table-bordered" style="font-size: 12px;">
                         <thead class="thead-inverse">
                             <tr>
-                                <th>1</th>
-                                <th>2</th>
-                                <th>3</th>
-                                <th>4</th>
-                                <th>5</th>
-                                <th>6</th>
-                                <th>7</th>
+                                <th>Subject</th>
+                                <th>Teacher</th>
+                                <th>User</th>
+                                <th>Int.</th>
+                                <th>Easy</th>
+                                <th>Date</th>
+                                <th>Description</th>
                             </tr>
                         </thead>
                         <tbody>
                             {% for rate in rates %}
                                 <tr>
-                                    <td>{{ rate.subject_id }}</td>
-                                    <td>{{ rate.leader_id }}</td>
+                                    <td>{{ rate.subject.shortcut }}</td>
+                                    <td>{{ rate.leader.first_name }} {{ rate.leader.last_name }}</td>
                                     <td>{{ rate.user.login }}</td>
                                     <td>{{ rate.how_interesting }}</td>
                                     <td>{{ rate.how_easy }}</td>
