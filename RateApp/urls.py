@@ -10,6 +10,10 @@ urlpatterns = [
     url(r'^user/rate$', views.rate, name='rate'),
     url(r'^home/search_subject/(?P<fraze>\w+)$', views.search_subject, name='search_subject'),
     url(r'^home/search_teacher/(?P<fraze>\w+)$', views.search_teacher, name='search_teacher'),
+    url(r'^home/subject_details/(?P<shortcut>\w+)$', views.subject_details, name='subject_details'),
+    url(r'^home/teacher_details/(?P<id>\w+)$', views.teacher_details, name='teacher_details'),
+
+
 
 
 ]

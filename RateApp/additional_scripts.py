@@ -38,13 +38,13 @@ def get_average(id, type):
     if type == 'subject':
         how_interesting = Rate.objects.filter(subject_id=id).values_list('how_interesting', flat=True)
         how_easy = Rate.objects.filter(subject_id=id).values_list('how_interesting', flat=True)
-        how_interesting_av = sum(how_interesting)/len(how_interesting)
+        how_interesting_av = int(sum(how_interesting)/len(how_interesting))
         how_easy_av = int(sum(how_easy) / len(how_easy))
         return how_interesting_av, how_easy_av
     else :
         how_interesting = Rate.objects.filter(leader_id=id).values_list('how_interesting', flat=True)
         how_easy = Rate.objects.filter(leader_id=id).values_list('how_interesting', flat=True)
-        how_interesting_av = sum(how_interesting)/len(how_interesting)
+        how_interesting_av = int(sum(how_interesting)/len(how_interesting))
         how_easy_av = int(sum(how_easy) / len(how_easy))
         return how_interesting_av, how_easy_av
 

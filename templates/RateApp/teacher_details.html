@@ -14,41 +14,32 @@
                     <div class="form-group">
                         <div id="form-title" class="jumbotron jumbotron">
                           <div class="container">
-                              <h1 class="lead"></h1>
+                              <h1 class="lead">{{ teacher }}</h1>
                           </div>
                         </div>
                     </div>
                     <table class="table table-bordered">
                         <thead class="thead-inverse">
                             <tr>
-                                <th>Param</th>
-                                <th>Value</th>
+                                <th>Int.</th>
+                                <th>Easy</th>
+                                <th>Description</th>
+                                <th>Date</th>
+                                <th>User</th>
                             </tr>
                         </thead>
                         <tbody>
+                        {% for rate in rates %}
                                 <tr>
-                                    <td>First Name</td>
-                                    <td>{{ teacher.first_name }}</td>
+                                    <td>{{ rate.how_interesting }}</td>
+                                    <td>{{ rate.how_easy }}</td>
+                                    <td>{{ rate.description }}</td>
+                                    <td>{{ rate.date }}</td>
+                                    <td>{{ rate.user.login }}</td>
                                 </tr>
-                                <tr>
-                                    <td>Last Name</td>
-                                    <td>{{ teacher.last_name }}</td>
-                                </tr>
-                                <tr>
-                                    <td>Subjects</td>
-                                    <td>{% for subject in subjects %} {{ subject.1 }} <br/> {% endfor %}</td>
-                                </tr>
-                                <tr>
-                                    <td>How Interesting</td>
-                                    <td>{{ av.0 }}</td>
-                                </tr>
-                                <tr>
-                                    <td>How Easy</td>
-                                    <td>{{ av.1 }}</td>
-                                </tr>
+                        {% endfor %}
                         </tbody>
                     </table>
-                    <a href="{% url 'RateApp:teacher_details' teacher.id %}"><button type="button" id="reg-submit" class="btn btn-primary">Show Details</button></a>
             </div>
 
 {% endblock %}

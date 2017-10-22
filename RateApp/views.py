@@ -119,3 +119,18 @@ def search_teacher(request, fraze):
     averange = additional_scripts.get_average(id=teacher.id, type='teacher')
     subjects = Subject.objects.filter(leaders=teacher).values_list()
     return render(request, 'RateApp/search_teacher.html', {'subjects': subjects, 'av': averange, 'teacher': teacher})
+
+@login_required
+def subject_details(request, shortcut):
+    #rates = Rate.objects.filter(subject = get_object_or_404(Subject, shortcut=fraze))
+    subject = get_object_or_404(Subject, shortcut=shortcut)
+    rates = Rate.objects.filter(subject=subject)
+    return render(request, 'RateApp/subject_details.html', {'rates': rates, 'subject':subject.name})
+
+@login_required
+def teacher_details(request, id):
+    #rates = Rate.objects.filter(subject = get_object_or_404(Subject, shortcut=fraze))
+    teacher = get_object_or_404(Teacher, pk=id)
+    rates = Rate.objects.filter(leader=teacher)
+    teacher_name = teacher.first_name + " " + teacher.last_name
+    return render(request, 'RateApp/subject_details.html', {'rates': rates, 'subject': teacher_name})
