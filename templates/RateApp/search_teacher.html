@@ -36,7 +36,7 @@
                                 </tr>
                                 <tr>
                                     <td>Subjects</td>
-                                    <td>{% for subject in subjects %} {{ subject.1 }} <br/> {% endfor %}</td>
+                                    <td>{% for subject in subjects %} <a href="{% url 'RateApp:subject_details' subject.2 %}">{{ subject.1 }}</a> <br/> {% endfor %}</td>
                                 </tr>
                                 <tr>
                                     <td>How Interesting</td>

@@ -2,14 +2,8 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="e7fb39ef-a30b-4702-979a-14b196ef42c5" name="Default" comment="">
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/templates/RateApp/subject_details.html" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/templates/RateApp/teacher_details.html" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/db.sqlite3" afterPath="$PROJECT_DIR$/db.sqlite3" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/API/urls.py" afterPath="$PROJECT_DIR$/API/urls.py" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/RateApp/additional_scripts.py" afterPath="$PROJECT_DIR$/RateApp/additional_scripts.py" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/RateApp/urls.py" afterPath="$PROJECT_DIR$/RateApp/urls.py" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/RateApp/views.py" afterPath="$PROJECT_DIR$/RateApp/views.py" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/templates/RateApp/search_subject.html" afterPath="$PROJECT_DIR$/templates/RateApp/search_subject.html" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/templates/RateApp/search_teacher.html" afterPath="$PROJECT_DIR$/templates/RateApp/search_teacher.html" />
     </list>
@@ -123,24 +117,14 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="views.py" pinned="false" current-in-tab="true">
+      <file leaf-file-name="views.py" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/RateApp/views.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="262">
-              <caret line="128" column="0" lean-forward="true" selection-start-line="128" selection-start-column="0" selection-end-line="128" selection-end-column="0" />
+            <state relative-caret-position="993">
+              <caret line="128" column="0" lean-forward="false" selection-start-line="128" selection-start-column="0" selection-end-line="128" selection-end-column="0" />
               <folding>
                 <element signature="e#0#57#0" expanded="true" />
               </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="subject_details.html" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/templates/RateApp/subject_details.html">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="0">
-              <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="73" selection-end-column="14" />
-              <folding />
             </state>
           </provider>
         </entry>
@@ -173,8 +157,8 @@
       <file leaf-file-name="search_subject.html" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/templates/RateApp/search_subject.html">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="63">
-              <caret line="51" column="0" lean-forward="false" selection-start-line="51" selection-start-column="0" selection-end-line="52" selection-end-column="0" />
+            <state relative-caret-position="178">
+              <caret line="38" column="121" lean-forward="false" selection-start-line="38" selection-start-column="121" selection-end-line="38" selection-end-column="121" />
               <folding />
             </state>
           </provider>
@@ -184,7 +168,7 @@
         <entry file="file://$PROJECT_DIR$/RateApp/additional_scripts.py">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="322">
-              <caret line="48" column="46" lean-forward="true" selection-start-line="48" selection-start-column="46" selection-end-line="48" selection-end-column="46" />
+              <caret line="48" column="46" lean-forward="false" selection-start-line="48" selection-start-column="46" selection-end-line="48" selection-end-column="46" />
               <folding />
             </state>
           </provider>
@@ -200,11 +184,11 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="search_teacher.html" pinned="false" current-in-tab="false">
+      <file leaf-file-name="search_teacher.html" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/templates/RateApp/search_teacher.html">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="220">
-              <caret line="47" column="37" lean-forward="true" selection-start-line="47" selection-start-column="37" selection-end-line="47" selection-end-column="37" />
+            <state relative-caret-position="121">
+              <caret line="35" column="37" lean-forward="true" selection-start-line="35" selection-start-column="37" selection-end-line="35" selection-end-column="37" />
               <folding />
             </state>
           </provider>
@@ -214,7 +198,7 @@
         <entry file="file://$PROJECT_DIR$/API/urls.py">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="182">
-              <caret line="19" column="0" lean-forward="true" selection-start-line="19" selection-start-column="0" selection-end-line="19" selection-end-column="0" />
+              <caret line="19" column="0" lean-forward="false" selection-start-line="19" selection-start-column="0" selection-end-line="19" selection-end-column="0" />
               <folding>
                 <element signature="e#0#41#0" expanded="true" />
               </folding>
@@ -322,12 +306,12 @@
         <option value="$PROJECT_DIR$/API/urls.py" />
         <option value="$PROJECT_DIR$/RateApp/additional_scripts.py" />
         <option value="$PROJECT_DIR$/templates/RateApp/home.html" />
-        <option value="$PROJECT_DIR$/templates/RateApp/search_subject.html" />
         <option value="$PROJECT_DIR$/templates/RateApp/subject_details.html" />
         <option value="$PROJECT_DIR$/templates/RateApp/teacher_details.html" />
         <option value="$PROJECT_DIR$/RateApp/urls.py" />
-        <option value="$PROJECT_DIR$/templates/RateApp/search_teacher.html" />
         <option value="$PROJECT_DIR$/RateApp/views.py" />
+        <option value="$PROJECT_DIR$/templates/RateApp/search_subject.html" />
+        <option value="$PROJECT_DIR$/templates/RateApp/search_teacher.html" />
       </list>
     </option>
   </component>
@@ -890,7 +874,14 @@
       <option name="project" value="LOCAL" />
       <updated>1508671469385</updated>
     </task>
-    <option name="localTasksCounter" value="24" />
+    <task id="LOCAL-00024" summary="Update9">
+      <created>1508673551437</created>
+      <option name="number" value="00024" />
+      <option name="presentableId" value="LOCAL-00024" />
+      <option name="project" value="LOCAL" />
+      <updated>1508673551437</updated>
+    </task>
+    <option name="localTasksCounter" value="25" />
     <servers />
   </component>
   <component name="TodoView">
@@ -1285,7 +1276,7 @@
     <entry file="file://$PROJECT_DIR$/API/urls.py">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="182">
-          <caret line="19" column="0" lean-forward="true" selection-start-line="19" selection-start-column="0" selection-end-line="19" selection-end-column="0" />
+          <caret line="19" column="0" lean-forward="false" selection-start-line="19" selection-start-column="0" selection-end-line="19" selection-end-column="0" />
           <folding>
             <element signature="e#0#41#0" expanded="true" />
           </folding>
@@ -1303,7 +1294,7 @@
     <entry file="file://$PROJECT_DIR$/RateApp/additional_scripts.py">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="322">
-          <caret line="48" column="46" lean-forward="true" selection-start-line="48" selection-start-column="46" selection-end-line="48" selection-end-column="46" />
+          <caret line="48" column="46" lean-forward="false" selection-start-line="48" selection-start-column="46" selection-end-line="48" selection-end-column="46" />
           <folding />
         </state>
       </provider>
@@ -1329,10 +1320,20 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/RateApp/views.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="993">
+          <caret line="128" column="0" lean-forward="false" selection-start-line="128" selection-start-column="0" selection-end-line="128" selection-end-column="0" />
+          <folding>
+            <element signature="e#0#57#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/templates/RateApp/subject_details.html">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="0">
-          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="73" selection-end-column="14" />
+        <state relative-caret-position="-469">
+          <caret line="9" column="35" lean-forward="false" selection-start-line="9" selection-start-column="35" selection-end-line="9" selection-end-column="35" />
           <folding />
         </state>
       </provider>
@@ -1347,27 +1348,17 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/templates/RateApp/search_subject.html">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="63">
-          <caret line="51" column="0" lean-forward="false" selection-start-line="51" selection-start-column="0" selection-end-line="52" selection-end-column="0" />
+        <state relative-caret-position="178">
+          <caret line="38" column="121" lean-forward="false" selection-start-line="38" selection-start-column="121" selection-end-line="38" selection-end-column="121" />
           <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/templates/RateApp/search_teacher.html">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="220">
-          <caret line="47" column="37" lean-forward="true" selection-start-line="47" selection-start-column="37" selection-end-line="47" selection-end-column="37" />
+        <state relative-caret-position="121">
+          <caret line="35" column="37" lean-forward="true" selection-start-line="35" selection-start-column="37" selection-end-line="35" selection-end-column="37" />
           <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/RateApp/views.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="262">
-          <caret line="128" column="0" lean-forward="true" selection-start-line="128" selection-start-column="0" selection-end-line="128" selection-end-column="0" />
-          <folding>
-            <element signature="e#0#57#0" expanded="true" />
-          </folding>
         </state>
       </provider>
     </entry>

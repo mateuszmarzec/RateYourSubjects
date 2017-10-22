@@ -36,7 +36,7 @@
                                 </tr>
                                 <tr>
                                     <td>Teachers</td>
-                                    <td>{% for teacher in teachers %} {{ teacher.1 }} {{ teacher.2 }} <br/> {% endfor %}</td>
+                                    <td>{% for teacher in teachers %} <a href="{% url 'RateApp:teacher_details' teacher.0 %}">{{ teacher.1 }} {{ teacher.2 }} </a><br/> {% endfor %}</td>
                                 </tr>
                                 <tr>
                                     <td>How Interesting</td>
